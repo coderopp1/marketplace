@@ -23,33 +23,21 @@
 // };
 
 // export default Signin;
-
 "use client";
 
-import { SignedOut, SignIn, SignInButton } from "@clerk/nextjs";
+import { SignedOut, SignIn, SignInButton, useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const Signin = () => {
   const router = useRouter();
-  const [signedIn, setSignedIn] = useState(false);
+  const { isSignedIn } = useUser(); // Check the user's sign-in status
 
   useEffect(() => {
-    if (signedIn) {
+    if (isSignedIn) {
       router.push("/api/auth/creation"); // Redirect to the specified route after the user signs in
     }
-  }, [signedIn, router]);
-
-  useEffect(() => {
-    // This effect simulates a check to see if the user has signed in.
-    // Replace this logic with an actual check if needed.
-    const checkSignInStatus = () => {
-      // Simulating the sign-in status update
-      setSignedIn(true);
-    };
-
-    checkSignInStatus();
-  }, []);
+  }, [isSignedIn, router]);
 
   return (
     <SignedOut>
