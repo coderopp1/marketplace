@@ -31,6 +31,7 @@ import { useState } from "react";
 import { useFormState } from "react-dom";
 import Image from "next/image";
 import prisma from "@/app/lib/db";
+import { unstable_noStore as noStore } from "next/cache";
 
 async function getData() {
   const data = await prisma.banner.findMany({
@@ -42,6 +43,7 @@ async function getData() {
 }
 
 export default async function BannerRoute() {
+  noStore();
   const data = await getData();
   return (
     <>

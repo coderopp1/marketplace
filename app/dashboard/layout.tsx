@@ -14,12 +14,14 @@ import {
 import { SignedIn, UserButton } from "@clerk/nextjs";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import { unstable_noStore as noStore } from "next/cache";
 
 export default async function DashboardLayout({
   children,
 }: {
   children: ReactNode;
 }) {
+  noStore();
   const { userId } = auth();
   const user = await currentUser();
 
