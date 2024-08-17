@@ -73,6 +73,6 @@ export async function GET() {
   return NextResponse.redirect(
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000/"
-      : "https://https://marketplace-42tz.vercel.app"
+      : "https://marketplace-zbdd.onrender.com"
   );
 }
