@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import Dashboardnavigation from "../components/dashboard/Dashboardnavigation";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/Sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { CircleUser, Link, MenuIcon } from "lucide-react";
 import {

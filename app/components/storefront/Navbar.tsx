@@ -1,5 +1,5 @@
 
-import useRedirectAfterSignUp from "@/app/lib/redirectsignup";
+
 import { Button } from "@/components/ui/button";
 import {
   ClerkProvider,
