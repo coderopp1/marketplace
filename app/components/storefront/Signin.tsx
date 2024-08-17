@@ -27,16 +27,20 @@
 
 import { SignedOut, SignIn, SignInButton, useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const Signin = () => {
   const router = useRouter();
   const { isSignedIn } = useUser(); // Check the user's sign-in status
+  const isSignedInRef = useRef(isSignedIn);
 
   useEffect(() => {
-    if (isSignedIn) {
+    // Use the ref to store the sign-in status
+    if (isSignedInRef.current) {
       router.push("/api/auth/creation"); // Redirect to the specified route after the user signs in
     }
+    // Update the ref with the latest isSignedIn value
+    isSignedInRef.current = isSignedIn;
   }, [isSignedIn, router]);
 
   return (
